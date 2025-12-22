@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main><center>
+    <div class="login-box">
+    <h1 class="title">SYSTEM HACKED</h1>
+       <p><h3>!!Enter the Username and Code to save your device!!</h3></p>
+
+    <form class="login-form" >
+        <div class="row">
+       <label>Username:</label>
+        <input type="text" required placeholder="Username" />
+        </div>
+      
+     
+      
+
+      <p>
+        <div class="row">
+        <label>Code:</label>
+        <input type="password" required placeholder="Code" />
+        </div>
+      </p>
+
+      <p>
+        <div class="checkbox">
+        <label>
+          <input id="show" type="checkbox" /> Show
+        </label>
+        </div>
+      </p>
+
+      <p>
+        <label>
+          <input id="remember" name="remember" type="checkbox" /> Agree with any requirements
+        </label>
+      </p>
+
+      <p>
+        <button type="submit">Submit</button>
+      </p>
+
+      <p id="msg" role="status" aria-live="polite"></p>
+
+      <p>Goodluckk!!</p>
+      </div>
+    </form>
+  </main>
+  </center>
+
+  <script>
+    // Minimal client-side login demo (no styles)
+    const DEMO = { email: 'user@example.com', password: 'password123' };
+    const form = document.getElementById('loginForm');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const show = document.getElementById('show');
+    const msg = document.getElementById('msg');
+    const remember = document.getElementById('remember');
+
+    // Prefill remembered email
+    document.addEventListener('DOMContentLoaded', () => {
+      const remembered = localStorage.getItem('demo_user_email');
+      if (remembered) {
+        email.value = remembered;
+        remember.checked = true;
+      }
+    });
+
+    show.addEventListener('change', () => {
+      password.type = show.checked ? 'text' : 'password';
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      msg.textContent = '';
+
+      const em = email.value.trim();
+      const pw = password.value;
+
+      if (!em || !pw) {
+        msg.textContent = 'Please fill both fields.';
+        return;
+      }
+
+      // Demo auth check
+      if (em.toLowerCase() === DEMO.email && pw === DEMO.password) {
+        if (remember.checked) localStorage.setItem('demo_user_email', em);
+        else localStorage.removeItem('demo_user_email');
+
+        localStorage.setItem('demo_logged_in', '1');
+        msg.textContent = 'Login successful. Redirecting...';
+        setTimeout(() => window.location.href = 'index.html', 700);
+      } else {
+        msg.textContent = 'Invalid email or password.';
+      }
+    });
+  </script>
+</body>
+</html>
