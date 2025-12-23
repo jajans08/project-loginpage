@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Login</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main><center>
+  
+    <video class="bg-video" autoplay muted loop>
+      <source src="video1.mp4" type="video/mp4">
+    </video>
+    
+  <main>
     <div class="login-box">
     <h1 class="title">SYSTEM HACKED</h1>
        <p><h3>!!Enter the Username and Code to save your device!!</h3></p>
@@ -32,6 +37,7 @@
         <div class="checkbox">
         <label>
           <input id="show" type="checkbox" /> Show
+          
         </label>
         </div>
       </p>
@@ -52,7 +58,6 @@
       </div>
     </form>
   </main>
-  </center>
 
   <script>
     // Minimal client-side login demo (no styles)
@@ -96,8 +101,9 @@
 
         localStorage.setItem('demo_logged_in', '1');
         msg.textContent = 'Login successful. Redirecting...';
-        setTimeout(() => window.location.href = 'index.html', 700);
-      } else {
+        setTimeout(() => window.location.href ='index.html', 700); 
+        
+      } else{
         msg.textContent = 'Invalid email or password.';
       }
     });
